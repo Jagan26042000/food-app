@@ -106,7 +106,7 @@ const LoginForm = (props) => {
               <div className="register">
                 <p>
                   {/* Don't have account <a href="#">Sign Up</a> */}
-                  Don't have account <h3>Sign Up</h3>
+                  Don't have account Sign Up
                 </p>
               </div>
             </form>

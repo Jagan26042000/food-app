@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import LoginForm from "./components/LoginForm";
 import MainMenu from "./components/MainMenu";
 import Cart from "./components/Cart";
@@ -11,6 +11,7 @@ import {
 import { HeaderLayout } from "./components/HeaderLayout";
 import { FoodList } from "./components/FoodList";
 import { ShopsContextCrud } from "./context/ShopsContextCrud";
+import Test from "./components/Test";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/ShopList" element={<MainMenu />}></Route>
           <Route path="/FoodList" element={<FoodList />}></Route>
           <Route path="/Cart" element={<Cart />}/>
+          <Route path="/Test" element={<Test />} />
         </Routes>
         </ShopsContextCrud>        
       </Router>

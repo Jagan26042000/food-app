@@ -8,9 +8,17 @@ export const ShopsContextCrud = ({ children }) => {
         email: "test@abc.com",
         password: "123",
     };
+
     const addCartHandler = (setCartItem) => {
-        
-        setCart([...cart, setCartItem]);
+        // console.log(cart);console.log(setCartItem);
+        // setCart([...cart,...setCartItem]);        
+        // console.log("Afer");
+        // console.log(cart);
+        // console.log("__________");
+        console.log(setCartItem);
+
+        const FilteredCart = cart.filter(item =>item!==setCartItem[0]);
+        setCart([...FilteredCart,...setCartItem]);
     };
 
     const value = {cart,

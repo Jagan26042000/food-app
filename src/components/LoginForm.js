@@ -1,6 +1,7 @@
-import { useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
+import { useShopsCrud } from "../context/ShopsContextCrud";
 
 const emailReducer = (state, action) => {
   if (action.type === "INPUT_EMAIL") {
@@ -28,7 +29,7 @@ const passwordReducer = (state, action) => {
 };
 
 const LoginForm = (props) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [formValid, setFormValid] = useState(false);
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
@@ -61,7 +62,7 @@ const LoginForm = (props) => {
     dispatchPassword({ type: "PASSWORD_RESET" });
     loginHandler(emailState.value, passwordState.value);
   };
-  const {credentials} = props;
+  const { credentials } = useShopsCrud();
 
   const loginHandler = (email, password) => {
     if (email === credentials.email && password === credentials.password) {
@@ -104,7 +105,8 @@ const LoginForm = (props) => {
               </div>
               <div className="register">
                 <p>
-                  Don't have account <a href="#">Sign Up</a>
+                  {/* Don't have account <a href="#">Sign Up</a> */}
+                  Don't have account <h3>Sign Up</h3>
                 </p>
               </div>
             </form>

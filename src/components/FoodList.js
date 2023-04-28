@@ -1,9 +1,12 @@
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Cart from "./Cart";
 import { v4 as uuid } from "uuid";
+import { useShopsCrud } from "../context/ShopsContextCrud";
 
 export function FoodList(props) {
   const location = useLocation();
+  const {cart} = useShopsCrud();
 
   const { hotel, food } = location.state;
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ export function FoodList(props) {
           return <Cart foodname={{...foodname, hotelId: hotel.id}} key={uuid()}/>;
         })}
       </ul>
-      <button>View Cart{props.Cart}</button>
+      <button>View Cart{cart}</button>
       <button onClick={HandleBack}>Back</button>
     </div>
   );

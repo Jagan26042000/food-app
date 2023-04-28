@@ -10,32 +10,26 @@ import {
 } from "react-router-dom";
 import { HeaderLayout } from "./components/HeaderLayout";
 import { FoodList } from "./components/FoodList";
-import { useState } from "react";
+import { ShopsContextCrud } from "./context/ShopsContextCrud";
 
 function App() {
-  const [cart,setCart] = useState([]);
-  const credentials = {
-    email: "test@abc.com",
-    password: "123",
-  };
-  const addCartHandler = (setCartItem) => {
-   setCart([...cart,setCartItem]);
-  };
 
   return (
     <div>
       <Router>
         <HeaderLayout hideHeaderPath={["/Login"]} />
+        <ShopsContextCrud>
         <Routes>
           <Route path="/" exact element={<Navigate to="/Login" replace />} />
           <Route
             path="/Login"
-            element={<LoginForm credentials={credentials} />}
+            element={<LoginForm  />}
           />
           <Route path="/ShopList" element={<MainMenu />}></Route>
-          <Route path="/FoodList" element={<FoodList cart={cart}/>}></Route>
-          <Route path="/Cart" element={<Cart addCartHandler={addCartHandler}/>}/>
+          <Route path="/FoodList" element={<FoodList />}></Route>
+          <Route path="/Cart" element={<Cart />}/>
         </Routes>
+        </ShopsContextCrud>        
       </Router>
     </div>
   );

@@ -9,6 +9,11 @@ export const ShopsContextCrud = ({ children }) => {
         password: "123",
     };
 
+    const removeCartHandler = (foodname)=>{
+        const FilteredCart = cart.filter(item =>item!==foodname);
+        setCart(FilteredCart);
+    };
+
     const addCartHandler = (setCartItem) => {
         // console.log(cart);console.log(setCartItem);
         // setCart([...cart,...setCartItem]);        
@@ -23,7 +28,8 @@ export const ShopsContextCrud = ({ children }) => {
 
     const value = {cart,
         credentials,
-        addCartHandler};
+        addCartHandler,
+        removeCartHandler};
 
     return <shopsCrudContext.Provider value={value}>
         {children}

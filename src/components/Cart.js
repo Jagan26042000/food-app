@@ -4,7 +4,8 @@ import { useShopsCrud } from "../context/ShopsContextCrud";
 const Cart = (props) => {
   const { foodname } = props;
   const [foodItem, setFoodItem] = useState([]);
-  const { addCartHandler, cart } = useShopsCrud();
+  const { addCartHandler,removeCartHandler, cart } = useShopsCrud();
+  let count = 0;
 
   // To get the number items in the cart
   const cartCount = cart.reduce((acc, item) => {
@@ -13,20 +14,17 @@ const Cart = (props) => {
   
   const [value, setValue] = useState(cartCount);
 
-  let count = 0;
+  // clickHandler will increase or decrease the foodItem with addCartHandler
+  // It will erase entire datan of a specific food in cart with removeCartHandler
   const clickHandler = () => {
-    addCartHandler(foodItem);
+    foodItem.length>0? addCartHandler(foodItem):removeCartHandler(foodname.name);
   };
 
+  // AddItem will set the foodItem as [value*foodname]
   const AddItem = (foodname, event) => {
     event.preventDefault();
     setValue(event.target.value);
-    // setFoodItem([...foodItem, foodname.name]);
     setFoodItem(Array.from({ length: event.target.value }, () => foodname.name));
-    // console.log(Array.from({ length: value }, () => foodname.name));
-    
-    // addCartHandler(foodItem);
-    // clickHandler();
   };
 
   return (

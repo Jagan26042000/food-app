@@ -47,7 +47,7 @@ const MainMenu = () => {
       <input type="text" placeholder="Search restaurant, dishes" />
       <ul>
         {HotelNames.map((hotel) => {
-          return <HotelCard foods={foods} hotel={hotel} />;
+          return <HotelCard foods={foods} hotel={hotel} key={hotel.id}/>;
         })}
       </ul>
     </div>

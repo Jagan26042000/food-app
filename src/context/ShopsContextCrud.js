@@ -15,30 +15,50 @@ export const ShopsContextCrud = ({ children }) => {
     { name: "Hotel-3", id: 789 },
   ];
 
-  const TotalFoodCount = cart.reduce((accumulator, cartItem) => {
-    console.log(cart);
-    return accumulator + parseInt(cartItem.foodCount);
-  }, 0);
+  //   const TotalFoodCount = cart.reduce((accumulator, cartItem) => {
+  //     return accumulator + parseInt(cartItem.foodCount);
+  //   }, 0);
+  //   const TotalFoodPrice = cart.reduce(() => {
+
+  //   },0)
+  const { TotalFoodCount, TotalFoodPrice } = cart.reduce(
+    (accumulator, currentValue) => {
+      accumulator.TotalFoodCount += parseInt(currentValue.foodCount);
+      accumulator.TotalFoodPrice +=
+        currentValue.foodPrice * parseInt(currentValue.foodCount);
+      return accumulator;
+    },
+    { TotalFoodCount: 0, TotalFoodPrice: 0 }
+  );
 
   const cartCard = (foodname, count) => {
-    const hotelName = HotelNames.find(hotel => hotel.id === foodname.hotelId).name;
+    const hotelName = HotelNames.find(
+      (hotel) => hotel.id === foodname.hotelId
+    ).name;
     const cartCardItem = {
-      cartId: `${foodname.hotelId}${foodname.name}`, hotelId: foodname.hotelId, hotelName,
-      foodname: foodname.name, foodPrice: foodname.rate * count, foodCount: count
+      cartId: `${foodname.hotelId}${foodname.name}`,
+      hotelId: foodname.hotelId,
+      hotelName,
+      foodname: foodname.name,
+      foodPrice: foodname.rate * count,
+      foodCount: count,
     };
-
     return cartCardItem;
-  }
+  };
 
   const addCartHandler = (setCartItem) => {
     console.log(setCartItem);
 
-    const FilteredCart = cart.filter((cartItem) => cartItem.cartId !== setCartItem.cartId);
+    const FilteredCart = cart.filter(
+      (cartItem) => cartItem.cartId !== setCartItem.cartId
+    );
     setCart([...FilteredCart, setCartItem]);
   };
 
   const removeCartHandler = (foodname) => {
-    const FilteredCart = cart.filter((cartItem) => cartItem.cartId !== foodname);
+    const FilteredCart = cart.filter(
+      (cartItem) => cartItem.cartId !== foodname
+    );
     setCart(FilteredCart);
   };
 
@@ -47,8 +67,13 @@ export const ShopsContextCrud = ({ children }) => {
     navigate(-1);
   };
 
+  const ResetCartHandler = () => {
+    setCart([]);
+  };
+
   const value = {
     TotalFoodCount,
+    TotalFoodPrice,
     HotelNames,
     cart,
     credentials,
@@ -56,6 +81,7 @@ export const ShopsContextCrud = ({ children }) => {
     removeCartHandler,
     cartCard,
     HandleBack,
+    ResetCartHandler,
   };
 
   return (

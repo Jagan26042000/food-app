@@ -15,25 +15,24 @@ import { ShopsContextCrud } from "./context/ShopsContextCrud";
 import Test from "./components/Test";
 
 function App() {
-
   return (
     <div>
       <Router>
-        <HeaderLayout hideHeaderPath={["/Login"]} />
+        <HeaderLayout
+          showHeaderPath={["/ShopList", "/FoodList", "/FoodCard", "/Cart"]}
+        />
         <ShopsContextCrud>
-        <Routes>
-          <Route path="/" exact element={<Navigate to="/Login" replace />} />
-          <Route
-            path="/Login"
-            element={<LoginForm  />}
-          />
-          <Route path="/ShopList" element={<MainMenu />}></Route>
-          <Route path="/FoodList" element={<FoodList />}></Route>
-          <Route path="/FoodCard" element={<FoodCard />}/>
-          <Route path="/Cart" element={<Cart />}/>
-          <Route path="/Test" element={<Test />} />
-        </Routes>
-        </ShopsContextCrud>        
+          <Routes>
+            <Route path="/" exact element={<Navigate to="/Login" replace />} />
+            <Route path="/Login" element={<LoginForm />} />
+            <Route path="/ShopList" element={<MainMenu />}></Route>
+            <Route path="/FoodList" element={<FoodList />}></Route>
+            <Route path="/FoodCard" element={<FoodCard />} />
+            <Route path="/Cart" element={<Cart />} />
+            <Route path="/Test" element={<Test />} />
+            <Route path="*" element={<Test />} />
+          </Routes>
+        </ShopsContextCrud>
       </Router>
     </div>
   );

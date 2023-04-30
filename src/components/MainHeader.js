@@ -8,7 +8,7 @@ const MainHeader = () => {
       <Link to={"/Login"}>
         <button>Logout</button>
       </Link>
-      <button>Cart</button>
+      <Link to={"/Cart"}><button>Cart</button></Link>
       <p>PP</p>
     </header>
   );

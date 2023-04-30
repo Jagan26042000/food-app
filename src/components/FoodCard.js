@@ -23,12 +23,9 @@ const FoodCard = (props) => {
   };
 
   // AddItem will set the foodItem as [value*foodname]
-  const AddItem = (foodname, event) => {
+  const AddItem = (event) => {
     event.preventDefault();
     setValue(event.target.value);
-    // setFoodItem(
-    //   Array.from({ length: event.target.value }, () => foodname.name)
-    // );
   };
 
   return (
@@ -38,7 +35,7 @@ const FoodCard = (props) => {
       <input
         type="number"
         onChange={(event) => {
-          AddItem(foodname, event);
+          AddItem(event);
         }}
         min={count}
         value={value}

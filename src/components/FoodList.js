@@ -7,7 +7,7 @@ import { useShopsCrud } from "../context/ShopsContextCrud";
 export function FoodList(props) {
   const location = useLocation();
   const { hotel, food } = location.state;
-  const { TotalFoodCount, HandleBack } = useShopsCrud();
+  const { TotalFoodCount = 0, HandleBack } = useShopsCrud();
 
   return (
     <div>
@@ -28,7 +28,7 @@ export function FoodList(props) {
         })}
       </ul>
       <Link to={"/Cart"}>
-        <button>{TotalFoodCount}View Cart</button>
+        <button>{TotalFoodCount > 0 && TotalFoodCount}View Cart</button>
       </Link>
       <button onClick={HandleBack}>Back</button>
     </div>

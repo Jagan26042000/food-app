@@ -11,10 +11,9 @@ const Test = () => {
     console.log(Array.isArray(cart))
 
     return (<div>
-        <br/><br/><br/><br/><br/>
-        <p>Hello</p>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p>Page Not Found</p>
+
     </div>);
 };
 

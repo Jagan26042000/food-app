@@ -1,4 +1,5 @@
 import { useShopsCrud } from "../context/ShopsContextCrud";
+import "./Cart.css";
 
 const Cart = () => {
   const { HandleBack, cart, TotalFoodCount, TotalFoodPrice, ResetCartHandler } =
@@ -9,7 +10,7 @@ const Cart = () => {
     ResetCartHandler();
   };
   return (
-    <div>
+    <div className="cart-container">
       <br></br>
       <br></br>
       <br></br>
@@ -19,21 +20,19 @@ const Cart = () => {
       <ul>
         {cart.map((cartData) => {
           return (
-            <>
-              <li>{cartData.hotelName}</li>
-              <li>{cartData.foodname}</li>
-              <li>{cartData.foodPrice}</li>
-              <li>{cartData.foodCount}</li>
-            </>
+            <div className="cart-item">
+              <div>{cartData.hotelName}</div>
+              <div>{cartData.foodname}</div>
+              <div>{cartData.foodPrice}</div>
+              <div>{cartData.foodCount}</div>
+            </div>
           );
         })}
       </ul>
-      {TotalFoodCount + "items" + TotalFoodPrice}
-      <button onClick={PlaceOrderHandler}>Place Order</button>
-      <button onClick={HandleBack}>Back</button>
+      <div className="cart-total">{TotalFoodCount + " Items | " + TotalFoodPrice}</div>
+      <button className="cart-btn" onClick={PlaceOrderHandler}>Place Order</button>
+      <button className="cart-btn" onClick={HandleBack}>Back</button>
     </div>
   );
 };
 export default Cart;
-// cartId: `${foodname.hotelId}${foodname.name}`, hotelId: foodname.hotelId, hotelName,
-//       foodname: foodname.name, foodPrice: foodname.rate * count, foodCount: count

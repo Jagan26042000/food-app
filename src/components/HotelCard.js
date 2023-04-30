@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./HotelCard.css";
 
 const HotelCard = (props) => {
   const { hotel, foods } = props;
@@ -12,8 +13,9 @@ const HotelCard = (props) => {
         food: foods.find((food) => food.id === hotel.id).items,
       }}
       key={hotel.id}
+      className="hotel-card"
     >
-      <li>{hotel.name} </li>
+      <div className="hotel-card__name">{hotel.name} </div>
     </Link>
   );
 };

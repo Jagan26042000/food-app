@@ -15,12 +15,6 @@ export const ShopsContextCrud = ({ children }) => {
     { name: "Hotel-3", id: 789 },
   ];
 
-  //   const TotalFoodCount = cart.reduce((accumulator, cartItem) => {
-  //     return accumulator + parseInt(cartItem.foodCount);
-  //   }, 0);
-  //   const TotalFoodPrice = cart.reduce(() => {
-
-  //   },0)
   const { TotalFoodCount, TotalFoodPrice } = cart.reduce(
     (accumulator, currentValue) => {
       accumulator.TotalFoodCount += parseInt(currentValue.foodCount);

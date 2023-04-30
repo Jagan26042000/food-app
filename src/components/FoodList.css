@@ -1,0 +1,53 @@
+.foodlist-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.foodlist-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.foodlist-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.foodlist-list-item-info {
+  flex: 1;
+}
+
+.foodlist-list-item-name {
+  margin: 0;
+}
+
+.foodlist-list-item-description {
+  margin: 5px 0 0 0;
+}
+
+.foodlist-list-item-price {
+  margin: 5px 0 0 0;
+}
+
+.foodlist-list-item-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.foodlist-list-item-button:hover {
+  background-color: #3e8e41;
+}

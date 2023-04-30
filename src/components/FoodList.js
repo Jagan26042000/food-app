@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import { v4 as uuid } from "uuid";
 import { useShopsCrud } from "../context/ShopsContextCrud";
+import "./FoodList.css";
 
 export function FoodList(props) {
   const location = useLocation();
@@ -16,8 +17,8 @@ export function FoodList(props) {
       <br></br>
       <br></br>
       <br></br>
-      <header>{hotel.name}</header>
-      <ul>
+      <header className="foodlist-header">{hotel.name}</header>
+      <ul className="foodlist-list">
         {food.map((foodname) => {
           return (
             <FoodCard
@@ -28,9 +29,9 @@ export function FoodList(props) {
         })}
       </ul>
       <Link to={"/Cart"}>
-        <button>{TotalFoodCount > 0 && TotalFoodCount}View Cart</button>
+        <button className="foodlist-list-item-button">{TotalFoodCount > 0 && TotalFoodCount}View Cart</button>
       </Link>
-      <button onClick={HandleBack}>Back</button>
+      <button className="foodlist-list-item-button" onClick={HandleBack}>Back</button>
     </div>
   );
 }

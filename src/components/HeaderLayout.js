@@ -4,11 +4,5 @@ import MainHeader from "./MainHeader";
 
 export function HeaderLayout({ showHeaderPath = [], onLogout }) {
   const { pathname } = useLocation();
-  return (
-    <div>
-      {showHeaderPath.indexOf(pathname) !== -1 && (
-        <MainHeader />
-      )}
-    </div>
-  );
+  return <div>{showHeaderPath.indexOf(pathname) !== -1 && <MainHeader />}</div>;
 }

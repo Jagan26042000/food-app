@@ -1,9 +1,10 @@
 import React from "react";
 import HotelCard from "./HotelCard";
 import { useShopsCrud } from "../context/ShopsContextCrud";
+import "./MainMenu.css";
 
 const MainMenu = () => {
-  const {HotelNames} = useShopsCrud();
+  const { HotelNames } = useShopsCrud();
 
   const foods = [
     {
@@ -31,19 +32,19 @@ const MainMenu = () => {
       ],
     },
   ];
-  
+
   return (
-    <div>
+    <div className="container">
       <br></br>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <label>Search</label>
-      <input type="text" placeholder="Search restaurant, dishes" />
+      <label className="search-label">Search</label>
+      <input className="search-input" type="text" placeholder="Search restaurant, dishes" />
       <ul>
         {HotelNames.map((hotel) => {
-          return <HotelCard foods={foods} hotel={hotel} key={hotel.id}/>;
+          return <HotelCard foods={foods} hotel={hotel} key={hotel.id} />;
         })}
       </ul>
     </div>

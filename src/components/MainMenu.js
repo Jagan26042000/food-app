@@ -1,13 +1,9 @@
 import React from "react";
-import { v4 as uuid } from "uuid";
 import HotelCard from "./HotelCard";
+import { useShopsCrud } from "../context/ShopsContextCrud";
 
 const MainMenu = () => {
-  const HotelNames = [
-    { name: "Hotel-1", id: uuid() },
-    { name: "Hotel-2", id: uuid() },
-    { name: "Hotel-3", id: uuid() },
-  ];
+  const {HotelNames} = useShopsCrud();
 
   const foods = [
     {

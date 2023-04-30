@@ -3,14 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import { v4 as uuid } from "uuid";
 import { useShopsCrud } from "../context/ShopsContextCrud";
-import Cart from "./Cart";
 
 export function FoodList(props) {
   const location = useLocation();
-  const { cart } = useShopsCrud();
-
   const { hotel, food } = location.state;
-  const { HandleBack } = useShopsCrud();
+  const { TotalFoodCount, HandleBack } = useShopsCrud();
+
   return (
     <div>
       <br></br>
@@ -30,7 +28,7 @@ export function FoodList(props) {
         })}
       </ul>
       <Link to={"/Cart"}>
-        <button>{cart.length}View Cart</button>
+        <button>{TotalFoodCount}View Cart</button>
       </Link>
       <button onClick={HandleBack}>Back</button>
     </div>

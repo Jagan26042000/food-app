@@ -3,32 +3,32 @@ import { useShopsCrud } from "../context/ShopsContextCrud";
 
 const FoodCard = (props) => {
   const { foodname } = props;
-  const [foodItem, setFoodItem] = useState([]);
-  const { addCartHandler, removeCartHandler, cart } = useShopsCrud();
+  // const [foodItem, setFoodItem] = useState([]);
+  const { addCartHandler, removeCartHandler, cart, cartCard } = useShopsCrud();
   let count = 0;
 
   // To get the number items in the cart
-  const cartCount = cart.reduce((acc, item) => {
-    return item === foodname.name ? acc + 1 : acc;
-  }, 0);
+  const cartCount = cart.find((cartItem) => {
+    return cartItem.cartId === `${foodname.hotelId}${foodname.name}`
+  })?.foodCount??0;
 
   const [value, setValue] = useState(cartCount);
 
   // clickHandler will increase or decrease the foodItem with addCartHandler
   // It will erase entire datan of a specific food in cart with removeCartHandler
   const clickHandler = () => {
-    foodItem.length > 0
-      ? addCartHandler(foodname,value)
-      : removeCartHandler(foodname.name);
+    value > 0
+      ? addCartHandler(cartCard(foodname, value))
+      : removeCartHandler(`${foodname.hotelId}${foodname.name}`);
   };
 
   // AddItem will set the foodItem as [value*foodname]
   const AddItem = (foodname, event) => {
     event.preventDefault();
     setValue(event.target.value);
-    setFoodItem(
-      Array.from({ length: event.target.value }, () => foodname.name)
-    );
+    // setFoodItem(
+    //   Array.from({ length: event.target.value }, () => foodname.name)
+    // );
   };
 
   return (

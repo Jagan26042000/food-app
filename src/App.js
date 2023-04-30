@@ -1,6 +1,7 @@
 // import "./App.css";
 import LoginForm from "./components/LoginForm";
 import MainMenu from "./components/MainMenu";
+import FoodCard from "./components/FoodCard";
 import Cart from "./components/Cart";
 import {
   Navigate,
@@ -28,6 +29,7 @@ function App() {
           />
           <Route path="/ShopList" element={<MainMenu />}></Route>
           <Route path="/FoodList" element={<FoodList />}></Route>
+          <Route path="/FoodCard" element={<FoodCard />}/>
           <Route path="/Cart" element={<Cart />}/>
           <Route path="/Test" element={<Test />} />
         </Routes>

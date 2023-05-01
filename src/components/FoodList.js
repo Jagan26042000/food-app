@@ -17,7 +17,9 @@ export function FoodList(props) {
       <br></br>
       <br></br>
       <br></br>
-      <header className="foodlist-header">{hotel.name}</header>
+      <center>
+        <header className="foodlist-header">{hotel.name}</header>
+      </center>
       <ul className="foodlist-list">
         {food.map((foodname) => {
           return (
@@ -29,9 +31,13 @@ export function FoodList(props) {
         })}
       </ul>
       <Link to={"/Cart"}>
-        <button className="foodlist-list-item-button">{TotalFoodCount > 0 && TotalFoodCount}View Cart</button>
+        <button className="foodlist-list-item-button">
+          {TotalFoodCount > 0 && TotalFoodCount}View Cart
+        </button>
       </Link>
-      <button className="foodlist-list-item-button" onClick={HandleBack}>Back</button>
+      <button className="foodlist-list-item-button-back" onClick={HandleBack}>
+        Back
+      </button>
     </div>
   );
 }

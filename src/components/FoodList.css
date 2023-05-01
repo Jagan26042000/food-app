@@ -2,6 +2,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  align-content: center;
 }
 
 .foodlist-list {
@@ -40,12 +41,26 @@
   border: none;
   color: white;
   padding: 8px 16px;
-  text-align: center;
+  text-align: right;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
+  float: right;
+}
+.foodlist-list-item-button-back {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: left;
 }
 
 .foodlist-list-item-button:hover {
